@@ -31,6 +31,8 @@
 (defn insert-face-cards
   "Returns the deck with face cards between its head and tail."
   [deck]
-  (vec (flatten (vector (first-card deck) face-cards (vec (drop 1 deck))))))
+  (cond
+    (= 0 (count deck)) face-cards
+    :else (vec (flatten (vector (first-card deck) face-cards (vec (drop 1 deck)))))))
 
-(insert-face-cards [3 10 7])
+(insert-face-cards [])
